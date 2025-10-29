@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+  <div class="p-6 bg-[#041026] rounded-xl border border-slate-800">
+    <h2 class="text-2xl mb-2">ANN Training</h2>
+    <form method="post" class="space-y-4">
+      <label class="block text-slate-300">Dataset size</label>
+      <input type="number" name="size" value="200" min="50" class="w-full p-2 rounded bg-[#021827]">
+      <label class="block text-slate-300">Random seed</label>
+      <input type="number" name="seed" value="1" min="0" class="w-full p-2 rounded bg-[#021827]">
+      <button class="mt-4 px-4 py-2 rounded bg-[#0b5178]">Train</button>
+    </form>
+  </div>
+
+  <div class="p-6 bg-[#041026] rounded-xl border border-slate-800">
+    <h3 class="text-xl">Results</h3>
+    {% if plot_data %}
+      <canvas id="annChart"></canvas>
+      <script>
+        const pData = {{ plot_data|tojson }};
+        const ctx = document.getElementById('annChart').getContext('2d');
+        new Chart(ctx, {
+          type: 'scatter',
+          data: {
+            datasets: [
+              { label: 'True', data: pData.scatter_x.map((x,i)=>({x: x, y: pData.scatter_y[i]})), pointRadius:4 },
+              { label: 'Predicted', data: pData.line_x.map((x,i)=>({x: x, y: pData.line_y[i]})), type:'line', fill:false, tension:0.2 }
+            ]
+          },
+          options: {scales:{x:{title:{display:true,text:'Hours'}}, y:{title:{display:true,text:'Score'}}}}
+        });
+      </script>
+      <p class="mt-2">MSE: {{metrics.mse}}</p>
+    {% else %}
+      <p class="text-slate-400">Press Train to run the demo ANN.</p>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

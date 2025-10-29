@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+  <div class="p-6 bg-[#041026] rounded-xl border border-slate-800">
+    <h2 class="text-2xl mb-2">Particle Swarm Optimization</h2>
+    <form method="post" class="space-y-3">
+      <label class="block text-slate-300">Number of particles</label>
+      <input type="number" name="n_particles" value="30" min="4" class="w-full p-2 rounded bg-[#021827]">
+      <label>Iterations</label>
+      <input type="number" name="iters" value="60" min="1" class="w-full p-2 rounded bg-[#021827]">
+      <button class="mt-3 px-4 py-2 rounded bg-[#0b5178]">Run PSO</button>
+    </form>
+  </div>
+
+  <div class="p-6 bg-[#041026] rounded-xl border border-slate-800">
+    <h3 class="text-xl">Results</h3>
+    {% if result %}
+      <p>Global best: <code>{{result.gbest}}</code></p>
+      <p>Best fitness: <code>{{result.gbest_val}}</code></p>
+      <img src="data:image/png;base64,{{result.plot}}" class="mt-4 rounded" />
+    {% else %}
+      <p class="text-slate-400">Set parameters and press Run PSO.</p>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

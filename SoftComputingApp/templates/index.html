@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soft Computing Intelligent Lab</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+  <header class="hero">
+    <h1>🧠 Soft Computing Intelligent Lab</h1>
+    <p>Explore Fuzzy Logic, Neural Networks, Genetic Algorithms, Swarm Optimization, and Bayesian Reasoning</p>
+    <p>Muhammad Feryanto Pratama NIM. 2411016310015</p>  
+</header>
+
+  <main class="gallery-section">
+    <h2 class="section-title">Explore Modules</h2>
+
+    <div class="gallery">
+      <a href="{{ url_for('fuzzy') }}" class="module-card fuzzy">
+        <h3>Fuzzy Logic</h3>
+        <p>Pengambilan keputusan berbasis ketidakpastian.</p>
+      </a>
+
+      <a href="{{ url_for('ann') }}" class="module-card ann">
+        <h3>Neural Network</h3>
+        <p>Jaringan saraf tiruan untuk pembelajaran dan prediksi.</p>
+      </a>
+
+      <a href="{{ url_for('ga') }}" class="module-card ga">
+        <h3>Genetic Algorithm</h3>
+        <p>Optimisasi solusi dengan prinsip evolusi biologis.</p>
+      </a>
+
+      <a href="{{ url_for('pso') }}" class="module-card pso">
+        <h3>Particle Swarm Optimization</h3>
+        <p>Optimisasi kolektif berbasis swarm intelligence.</p>
+      </a>
+
+      <a href="{{ url_for('bayes') }}" class="module-card bayes">
+        <h3>Bayesian Reasoning</h3>
+        <p>Prediksi probabilistik untuk pengambilan keputusan.</p>
+      </a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    © 2025 Soft Computing | Tugas Pendahuluan Algoritma Genetika
+  </footer>
+
+</body>
+</html>

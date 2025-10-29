@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+  <div class="p-6 bg-[#041026] rounded-xl border border-slate-800">
+    <h2 class="text-2xl mb-2">Genetic Algorithm</h2>
+    <form method="post" class="space-y-3">
+      <label class="block text-slate-300">Function</label>
+      <select name="func" class="w-full p-2 rounded bg-[#021827]">
+        <option value="sphere">Sphere</option>
+        <option value="rastrigin">Rastrigin</option>
+      </select>
+      <label>Population</label>
+      <input type="number" name="pop" value="50" min="4" class="w-full p-2 rounded bg-[#021827]">
+      <label>Generations</label>
+      <input type="number" name="gens" value="60" min="1" class="w-full p-2 rounded bg-[#021827]">
+      <label>Crossover rate</label>
+      <input type="number" step="0.01" name="cx" value="0.9" min="0" max="1" class="w-full p-2 rounded bg-[#021827]">
+      <label>Mutation rate</label>
+      <input type="number" step="0.01" name="mut" value="0.05" min="0" max="1" class="w-full p-2 rounded bg-[#021827]">
+      <button class="mt-3 px-4 py-2 rounded bg-[#0b5178]">Run GA</button>
+    </form>
+  </div>
+
+  <div class="p-6 bg-[#041026] rounded-xl border border-slate-800">
+    <h3 class="text-xl">Results</h3>
+    {% if result %}
+      <p>Best individual: <code>{{result.best_ind}}</code></p>
+      <p>Best fitness: <code>{{result.best_fit}}</code></p>
+      <img src="data:image/png;base64,{{result.plot}}" class="mt-4 rounded" />
+    {% else %}
+      <p class="text-slate-400">Set parameters and press Run GA.</p>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

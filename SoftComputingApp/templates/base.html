@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en" class="bg-[#05060a] text-white">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Soft Computing Lab</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="/static/style.css">
+  </head>
+  <body class="bg-gradient-to-br from-[#020213] via-[#07122a] to-[#061827] min-h-screen">
+    <div class="max-w-6xl mx-auto p-6">
+      <header class="flex items-center justify-between mb-8">
+        <div>
+          <h1 class="text-3xl font-extrabold tracking-tight">Soft Computing Lab</h1>
+          <p class="text-slate-300">Fuzzy • ANN • GA • PSO • Bayesian — Dark mode</p>
+        </div>
+        <nav>
+          <a href="/" class="px-4 py-2 bg-[#06263b] rounded-md hover:bg-[#074a73]">Dashboard</a>
+        </nav>
+      </header>
+
+      <main>
+        {% block content %}{% endblock %}
+      </main>
+
+      <footer class="mt-12 text-sm text-slate-400">
+        Built for learning — Soft Computing demo • Pendahuluan Algoritma Genetika<body class="bg-gradient-to-br from-[#020213] via-[#07122a] to-[#061827] min-h-screen"></body>
+      </footer>
+    </div>
+  </body>
+</html>
